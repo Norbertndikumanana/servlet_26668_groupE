@@ -12,11 +12,9 @@
         <p>Welcome to the Assignment 2 search page.</p>
         
         <div class="search-row" style="margin-top: 20px;">
-            <input type="search" placeholder="Search..." id="searchInput">
+            <input type="search" placeholder="Search on Google..." id="searchInput">
             <button type="button" onclick="performSearch()">Search</button>
         </div>
-        
-        <div id="searchResults" style="margin-top: 20px;"></div>
         
         <div class="note" style="margin-top: 20px;">
             <a href="assignments.html">Back to Assignments</a> | 
@@ -27,14 +25,17 @@
     
     <script>
         function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            const results = document.getElementById('searchResults');
-            if(query.trim()) {
-                results.innerHTML = '<p class="meta">Search results for: <strong>' + query + '</strong></p>';
+            const query = document.getElementById('searchInput').value.trim();
+            if(query) {
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
             } else {
-                results.innerHTML = '<p class="error">Please enter a search term.</p>';
+                alert('Please enter a search term.');
             }
         }
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') performSearch();
+        });
     </script>
 </body>
 </html>
