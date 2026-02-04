@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Assignment 2</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="search-card">
+        <h1>Search Page</h1>
+        <p>Welcome to the Assignment 2 search page.</p>
+        
+        <div class="search-row" style="margin-top: 20px;">
+            <input type="search" placeholder="Search..." id="searchInput">
+            <button type="button" onclick="performSearch()">Search</button>
+        </div>
+        
+        <div id="searchResults" style="margin-top: 20px;"></div>
+        
+        <div class="note" style="margin-top: 20px;">
+            <a href="assignments.html">Back to Assignments</a> | 
+            <a href="home.html">Home</a> | 
+            <a href="index.html">Sign Up</a>
+        </div>
+    </div>
+    
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            const results = document.getElementById('searchResults');
+            if(query.trim()) {
+                results.innerHTML = '<p class="meta">Search results for: <strong>' + query + '</strong></p>';
+            } else {
+                results.innerHTML = '<p class="error">Please enter a search term.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
